@@ -1,5 +1,7 @@
 from selenium import webdriver
 import time
+import psutil
+
 
 #specify where your chrome driver present in your pc
 PATH=r"chromedriver.exe"
@@ -16,6 +18,13 @@ driver.get("https://demo.guru99.com/test/newtours/register.php")
 driver.maximize_window()
 # print title
 print(driver.title)
+
+
+# Get the network timings from the performance logs
+performance = driver.execute_script("return window.performance.timing")
+
+# Get the start time
+start_time = time.monotonic()
 
 
 #find input text fields
@@ -44,7 +53,7 @@ lastName.send_keys("mercury")
 phone.send_keys("mercury")	
 email.send_keys("mercury")
 
-time.sleep(4)
+time.sleep(2)
 
 address.send_keys("mercury")	
 city.send_keys("mercury")	
@@ -52,13 +61,13 @@ state.send_keys("mercury")
 postalCode.send_keys("mercury")
 #Country:
 
-time.sleep(4)
+time.sleep(2)
 
 userName.send_keys("mercury")
 password.send_keys("mercury")
 confirmPassword.send_keys("mercury")
 
-time.sleep(4)
+time.sleep(2)
 
 #submit form
 submit.click()
@@ -67,6 +76,9 @@ submit.click()
 # Get the network timings from the performance logs
 performance = driver.execute_script("return window.performance.timing")
 
+# Get the start time
+start_time = time.monotonic()
+
 # Calculate the relevant timings
 protocol = driver.current_url.split(":")[0] # Get the protocol (e.g. https)
 response_time = performance['responseEnd'] - performance['requestStart'] # Calculate the response time
@@ -74,16 +86,21 @@ throughput = len(driver.page_source) / (response_time / 1000) # Calculate the th
 
 
 #Use Navigation Timing API to calculate the timings
-navigationStart = driver.execute_script("return window.performance.timing.navigationStart")
-responseStart = driver.execute_script("return window.performance.timing.responseStart")
-domComplete = driver.execute_script("return window.performance.timing.domComplete")
-
-backendPerformance_calc = responseStart - navigationStart
-frontendPerformance_calc = domComplete - responseStart
+navigation_start = performance['navigationStart']
+response_start = performance['responseStart']
+dom_loaded = performance['domContentLoadedEventEnd']
+load_time = performance['loadEventEnd'] - navigation_start
+frontend_duration = dom_loaded - navigation_start
+backend_duration = response_start - navigation_start
 
 pid = driver.service.process.pid
 memory_usage = psutil.Process(pid).memory_info().rss
 
+
+# Calculate the relevant timings
+request_sent_time = performance['requestStart'] - performance['navigationStart'] # Calculate the request sent time
+waiting_time = performance['responseStart'] - performance['requestStart'] # Calculate the waiting time (TTFB)
+content_download_time = performance['responseEnd'] - performance['responseStart'] # Calculate the content download time
 
 
 # Output the results
@@ -92,7 +109,13 @@ print(f"Response time: {response_time}ms")
 print(f"Throughput: {throughput} bytes/s")
 print(f"Memory usage: {memory_usage} bytes")
 
-print("Back End performance: %s" % backendPerformance_calc)
-print("Front End performance: %s" % frontendPerformance_calc)
+print(f"Request sent time: {request_sent_time}ms")
+print(f"Waiting time (TTFB): {waiting_time}ms")
+print(f"Content download time: {content_download_time}ms")
 
+print(f"Frontend duration: {frontend_duration}ms")
+print(f"Backend duration: {backend_duration}ms")
+print(f"Load time: {load_time}ms")
 
+# Close the WebDriver
+driver.quit()
