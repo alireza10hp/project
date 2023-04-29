@@ -117,5 +117,17 @@ print(f"Frontend duration: {frontend_duration}ms")
 print(f"Backend duration: {backend_duration}ms")
 print(f"Load time: {load_time}ms")
 
+
+
+# Get the performance data
+perf_data = driver.execute_script("return window.performance.getEntries();")
+
+# Save the performance data to a file
+with open("traffic_result .txt", "w") as file:
+    for data in perf_data:
+        file.write(str(data) + "\n")
+
+
+
 # Close the WebDriver
 driver.quit()
