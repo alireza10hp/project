@@ -51,3 +51,11 @@ https://toplearn.com/courses/-%D8%AA%D8%AD%D8%AA-%D9%88%DB%8C%D9%86%D8%AF%D9%88%
 https://www.roxo.ir/professional-python-working-with-selenium-part-1
 
 https://git.ir/selenium/
+
+
+
+
+capture traffic:
+
+https://www.rkengler.com/how-to-capture-network-traffic-when-scraping-with-selenium-and-python/
+https://gist.github.com/rengler33/f8b9d3f26a518c08a414f6f86109863c
