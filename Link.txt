@@ -63,3 +63,8 @@ https://gist.github.com/rengler33/f8b9d3f26a518c08a414f6f86109863c
 pyshark sniffer
 https://gist.github.com/ChaosTheArchitect/4708fc5c7089df327f8c51c406e420d3
 
+ddos:
+https://github.com/MatrixTM/MHDDoS
+https://github.com/palahsu/DDoS-Ripper
+https://github.com/Ha3MrX/DDos-Attack
+
