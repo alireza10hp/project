@@ -68,3 +68,9 @@ https://github.com/MatrixTM/MHDDoS
 https://github.com/palahsu/DDoS-Ripper
 https://github.com/Ha3MrX/DDos-Attack
 
+other:
+https://www.geeksforgeeks.org/selenium-python-tutorial/
+https://www.wireshark.org/docs/wsug_html_chunked/
+https://www.geeksforgeeks.org/wireshark-packet-capturing-and-analyzing/
+https://bittwist.sourceforge.net/
+
