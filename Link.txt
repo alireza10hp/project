@@ -74,3 +74,8 @@ https://www.wireshark.org/docs/wsug_html_chunked/
 https://www.geeksforgeeks.org/wireshark-packet-capturing-and-analyzing/
 https://bittwist.sourceforge.net/
 
+
+https://www.dnsstuff.com/network-traffic-generator-software
+https://www.networkstraining.com/best-network-traffic-packet-generator-tools/
+nping
+
