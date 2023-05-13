@@ -53,7 +53,7 @@ lastName.send_keys("mercury")
 phone.send_keys("mercury")	
 email.send_keys("mercury")
 
-time.sleep(2)
+#time.sleep(2)
 
 address.send_keys("mercury")	
 city.send_keys("mercury")	
@@ -61,13 +61,13 @@ state.send_keys("mercury")
 postalCode.send_keys("mercury")
 #Country:
 
-time.sleep(2)
+#time.sleep(2)
 
 userName.send_keys("mercury")
 password.send_keys("mercury")
 confirmPassword.send_keys("mercury")
 
-time.sleep(2)
+#time.sleep(2)
 
 #submit form
 submit.click()
