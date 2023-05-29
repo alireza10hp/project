@@ -80,3 +80,8 @@ https://www.networkstraining.com/best-network-traffic-packet-generator-tools/
 nping
 https://www.solarwinds.com/resources/it-glossary/pcap#:~:text=a%20PCAP%20file%3F-,What%20is%20a%20PCAP%20file%3F,traffic%20and%20determining%20network%20status.
 
+locust:
+https://docs.locust.io/en/stable/quickstart.html
+https://github.com/SvenskaSpel/har2locust
+
+
